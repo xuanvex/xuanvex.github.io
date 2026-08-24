@@ -256,7 +256,7 @@ body {
     align-items: center;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 1rem;
+    padding: 1rem 0;
     background-color: white;
     color: var(--card-foreground);
 }
@@ -265,13 +265,14 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    padding: 0 1rem;
 }
 .box-icon {
-    width: 26px;
-    height: 26px;
+    width: 27px;
+    height: 27px;
     display: flex;
-    border: 1px solid rgb(37, 99, 235, 0.3);
-    background-color: rgb(37, 99, 235, 0.2);
+    border: 1px solid rgb(37, 99, 235, 0.4);
+    background-color: rgb(37, 99, 235, 0.1);
     color: rgb(37, 99, 235);
     justify-content: center;
     align-items: center;
@@ -287,18 +288,24 @@ body {
     color: rgb(37, 99, 235);
     font-weight: 600;
 }
+.pad {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0 1rem;
+}
 .sms2 .number {
     width: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 0.5rem;
-    border: 1px solid rgba(208, 0, 255, 0.4);
-    border-right: 1px solid rgba(208, 0, 255, 0.4);
+    border: 1px solid rgb(37, 99, 235, 0.1);
+    border-right: 1px solid rgb(37, 99, 235, 0.4);
      margin-top: 0.5rem;
     border-radius: var(--radius-sm);
-    background-color: rgba(208, 0, 255, 0.05);
+    background-color: rgb(37, 99, 235, 0.05);
       transition: all 0.3s ease-in-out;
 }
 .number .code {
@@ -311,16 +318,16 @@ body {
     font-weight: 500;
     font-size: 0.9rem;
     border-radius: var(--radius-sm);
-    border: 1px solid rgba(208, 0, 255, 0.4);
-    background-color: rgba(208, 0, 255, 0.2);
+    border: 1px solid rgb(37, 99, 235, 0.4);
+    background-color: rgb(37, 99, 235, 0.2);
     padding: 0.3rem 0.3rem;
-    color: rgba(208, 0, 255, 0.984);
+    color: rgb(37, 99, 235);
 }
 .number input {
     width: 100%;
     padding: 12px;
     border: none;
-    border-left: 1px solid rgba(208, 0, 255, 0.4);   
+    border-left: 1px solid rgb(37, 99, 235, 0.1);   
     border-top-right-radius: var(--radius-sm);
     border-bottom-right-radius: var(--radius-sm);
     outline: none;
@@ -328,7 +335,52 @@ body {
     font-size: 0.9rem;
           transition: all 0.3s ease-in-out;
     &:focus {
-        border: 1px solid rgba(208, 0, 255, 0.4);
+        border: 1px solid rgb(37, 99, 235, 0.4);
     }
 }
-
+.devidor {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(37, 99, 235, 0.4);
+    margin-top: 0.5rem;
+}
+.telecom {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+#telecom {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid rgb(37, 99, 235, 0.1);
+    border-radius: var(--radius-sm);
+    background-color: rgb(37, 99, 235, 0.04);
+    outline: none;
+    font-weight: 400;
+}
+select,
+select::picker(select) {
+    appearance: base-select;
+}
+select::picker(select) {
+    border: 1px solid rgb(37, 99, 235, 0.1);
+    border-radius: var(--radius-sm);
+    padding: 0.1rem;
+    background-color: white;
+    margin-bottom: 0.5rem;
+}
+select::picker-icon {
+    color: rgb(37, 99, 235);
+    transition: all 300ms ease-in-out;
+    
+}
+select:open::picker-icon {
+    transition: all 300ms ease-in-out;
+    rotate: 180deg;
+}
+option {
+    color: rgb(37, 99, 235);
+    border-radius: var(--radius);
+    padding: 0.1rem 0.3rem;
+    font-size: 0.9rem;
+}
