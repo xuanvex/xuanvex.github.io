@@ -28,3 +28,18 @@ copyIcon.addEventListener('click', async () => {
         console.log("Error copying chat ID:", error);
     }
 });
+
+
+const checkbox = document.getElementById('checkbox');
+
+var isCheck = false;
+
+checkbox.addEventListener('click', () => {
+    if(!checkbox.classList.contains('check')) {
+        checkbox.classList.add('check');
+        isCheck = true;
+    } else {
+        checkbox.classList.remove('check');
+        isCheck = false;
+    }
+})
