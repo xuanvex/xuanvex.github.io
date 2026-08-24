@@ -43,7 +43,9 @@
 * {
   box-sizing: border-box;
 }
-
+.copy-success {
+    color: #3b82f6;
+}
 body {
   margin: 0;
   background: var(--surface);
@@ -316,7 +318,7 @@ body {
     align-items: center;
     gap: 0.3rem;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     border-radius: var(--radius-sm);
     border: 1px solid rgb(37, 99, 235, 0.4);
     background-color: rgb(37, 99, 235, 0.2);
@@ -341,7 +343,7 @@ body {
 .devidor {
     width: 100%;
     height: 1px;
-    background-color: rgb(37, 99, 235, 0.4);
+    background-color: rgb(37, 99, 235, 0.1);
     margin-top: 0.5rem;
 }
 .telecom {
@@ -352,6 +354,7 @@ body {
     width: 100%;
     padding: 0.5rem 1rem;
     margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     border: 1px solid rgb(37, 99, 235, 0.1);
     border-radius: var(--radius-sm);
     background-color: rgb(37, 99, 235, 0.04);
@@ -381,6 +384,16 @@ select:open::picker-icon {
 option {
     color: rgb(37, 99, 235);
     border-radius: var(--radius);
-    padding: 0.1rem 0.3rem;
+    padding: 0.4rem 0.3rem;
     font-size: 0.9rem;
+}
+#copy-chat-id.copy-success {
+    color: #00ff15 !important;
+    stroke:  #00ff15 !important;
+}
+#copy-chat-id:hover {
+    transform: scale(0.90);
+}
+#copy-chat-id:active {
+    transform: scale(1);
 }
