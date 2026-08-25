@@ -516,23 +516,16 @@ option {
     color: white;
     font-weight: 600;
     border-radius: var(--radius);
-    background: linear-gradient(
-        135deg,
-        #2563eb 0%,
-        #6366f1 50%,
-        #a78bfa 100%
-    );
-    border: 2px solid rgb(164, 119, 237);;
+    background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 45%, #a78bfa 100%);
+    border: 2px solid var(--border);
     transition: all 200ms ease-in-out;
     cursor: pointer;
 }
 .sms3 button:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.05);
-    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+    transform: scale(1.03);
 }
 .sms3 button:active {
-    transform: translateY(0) scale(0.98);
+    transform: scale(0.97);
 }
 .sms3 button:disabled {
     cursor: not-allowed;

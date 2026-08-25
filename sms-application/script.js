@@ -64,9 +64,6 @@ submit.addEventListener('click', async () => {
     loaderON()
     const num = normalizeBDNumber(number.value);
     const oparatorSIM = oparator.value;
-    setTimeout(() => {
-        console.log('hi')
-    }, 3000); 
     try {;
         if (num === '') return alert("Please fillup the number input");
         if (!numberValid(num)) return alert(`Failed ${num} is not valid`);
@@ -86,14 +83,20 @@ submit.addEventListener('click', async () => {
         });
         const data = await send.json();
         console.log(data);
+         await wait(3000);
     } catch (error) {
         console.log(`Error: ${error}`);
+         await wait(3000);
     } finally {
         loaderOFF();
         attackText.innerText = 'Attack Failed?';
     }
 
 });
+
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function loaderON() {
     if (load.style.display === 'none') {
