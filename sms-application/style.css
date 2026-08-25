@@ -468,7 +468,8 @@ option {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: green;
+    background-color: white;
 
 }
 .checkbox.check span svg {
@@ -476,4 +477,54 @@ option {
 }
 .checkbox.check {
        border: 1px solid rgb(0, 128, 0, 0.4);
+       background-color: green;
+}
+.sms3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.sms3 button {
+    width: 100%;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 45%, #a78bfa 100%);
+    border: 2px solid rgb(164, 119, 237);
+    transition: all 200ms ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:active {
+        transform: scale(0.97);
+    }
+}
+#skull {
+    width: 17px;
+    height: 17px;
+}
+.loader {
+    width: 17px;
+    height: 17px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% {
+        rotate: 0;
+    }
+    100% {
+        rotate: 360deg;
+    }
 }

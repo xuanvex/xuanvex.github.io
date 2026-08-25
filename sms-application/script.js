@@ -31,8 +31,10 @@ copyIcon.addEventListener('click', async () => {
 
 
 const checkbox = document.getElementById('checkbox');
-
+const number = document.getElementById('number');
+const oparator = document.getElementById('telecom');
 var isCheck = false;
+
 
 checkbox.addEventListener('click', () => {
     if(!checkbox.classList.contains('check')) {
@@ -42,4 +44,84 @@ checkbox.addEventListener('click', () => {
         checkbox.classList.remove('check');
         isCheck = false;
     }
+    btnActive();
 })
+
+const submit = document.getElementById('submit');
+const load = document.getElementById('loader');
+const skull = document.getElementById('skull');
+const attackText = document.getElementById('attackText');
+
+btnActive();
+
+function btnActive() {
+    submit.disabled = !isCheck;
+    submit.style.opacity = isCheck ? "1" : "0.5";
+}
+
+load.style.display = 'none';
+
+submit.addEventListener('click', async () => {
+    loaderON()
+    const num = normalizeBDNumber(number.value);
+    const oparatorSIM = oparator.value;
+    try {;
+        if (num === '') return alert("Please fillup the number input");
+        if (!numberValid(num)) return alert(`Failed ${num} is not valid`);
+        if(oparatorSIM === '') return alert('Please select an a opator SIM that you target to attack?');
+        if (!isCheck) return alert(`PLease check the privacy and policy without is check you can't even attack any number.`);
+
+        const send = await fetch(`https://xuanvex.github.io/`, {
+            method: 'POST',
+            headers: {
+                'Content-type' : 'application/json',
+                'Xuanvex-Token' : 'xuanvex1234'
+            },
+            body: JSON.stringify({
+                'number' : num,
+                'oparator' : oparatorSIM
+            })
+        });
+        const data = await send.json();
+        console.log(data);
+    } catch (error) {
+        console.log(`Error: ${error}`);
+    } finally {
+        loaderOFF();
+        attackText.innerText = 'Attack Failed?';
+    }
+
+});
+
+function loaderON() {
+    if (load.style.display === 'none') {
+        load.style.display= 'flex';
+        skull.style.display = 'none'
+        attackText.innerText = 'Attacking...'
+    }
+}
+function loaderOFF() {
+    if(load.style.display === 'flex') {
+        load.style.display = 'none';
+        skull.style.display = 'flex';
+        attackText.innerText = 'Attack Now';
+    }
+}
+function normalizeBDNumber(number) {
+    let num = String(number).trim();
+    num = num.replace(/\D/g, "");
+    if (num.startsWith("880")) {
+        num = "0" + num.slice(3);
+    }
+    else if (num.startsWith("1") && num.length === 10) {
+        num = "0" + num;
+    }
+    return num;
+}
+function numberValid(num) {
+    num = num.trim().replace(/\s|-/g, "");
+
+    const pattern = /^(?:\+8801|01|1)\d{9}$/;
+
+    return pattern.test(num);
+}
