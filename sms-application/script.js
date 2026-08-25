@@ -56,7 +56,6 @@ btnActive();
 
 function btnActive() {
     submit.disabled = !isCheck;
-    submit.style.opacity = isCheck ? "1" : "0.5";
 }
 
 load.style.display = 'none';
@@ -65,6 +64,9 @@ submit.addEventListener('click', async () => {
     loaderON()
     const num = normalizeBDNumber(number.value);
     const oparatorSIM = oparator.value;
+    setTimeout(() => {
+        console.log('hi')
+    }, 3000); 
     try {;
         if (num === '') return alert("Please fillup the number input");
         if (!numberValid(num)) return alert(`Failed ${num} is not valid`);
