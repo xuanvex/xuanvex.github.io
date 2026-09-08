@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form (XuanVex)</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+        :root {
+            --main-text-color: #202124;
+            --secodary-text-color: #6b7280;
+            --body: #f8f9fa;
+            --border: #e5e7eb;
+            --container-bg: white;
+        }
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 5px;
+            padding: 20px;
+            background: var(--body);
+            color: var(--main-text-color);
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        .container {
+            width: 100%;
+            padding: 0 0;
+            border: 1px solid var(--border);
+            background-color: var(--container-bg);
+            border-radius: 0.8rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            gap: 5px;
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+        .container .head {
+            width: 100%;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .head h1 {
+            font-size: 26px;
+            letter-spacing: -1px;
+            color: var(--main-text-color);
+        }
+        .head p {
+            font-size: 15px;
+            color: var(--secodary-text-color);
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        .devider {
+            width: 100%;
+            height: 0.9px;
+            background-color: var(--border);
+        }
+        .input-feilds {
+            width: 100%;
+            padding: 0 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .input {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .input label {
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 400;
+            color: var(--main-text-color);
+        }
+        .input input {
+            width: 100%;
+            padding: 11px;
+            outline: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background-color: var(--body);
+            color: var(--main-text-color);
+            &:hover, &:focus {
+                border: 1px solid var(--secodary-text-color);
+            }
+        }
+        .input textarea {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid var(--border);
+            background-color: var(--body);
+            color: var(--main-text-color);
+            border-radius: 8px;
+                        &:hover, &:focus {
+                border: 1px solid var(--secodary-text-color);
+            }
+        }
+        main {
+            width: 100%;;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="head">
+                <h1>Contact With Us</h1>
+                <p>Fill up the form to contact with us.</p>
+            </div>
+            <div class="devider"></div>
+            <div class="input-feilds">
+                <div class="input">
+                    <label>Name <span style="color: red;">*</span></label>
+                    <input type="text" placeholder="Your name...">
+                </div>
+                                <div class="input">
+                    <label>E-mail <span style="color: red;">*</span></label>
+                    <input type="text" placeholder="Your name...">
+                </div>
+                    <div class="input">
+                    <label>Message <span style="color: red;">*</span></label>
+                    <textarea type="text" placeholder="Your name...">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
