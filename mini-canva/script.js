@@ -56,14 +56,28 @@ function addUpload(fileName, uploadPercentage, path) {
 
 }
 
-
+const toggle = document.querySelector(".toogle");
 const params = new URLSearchParams(window.location.search);
 const theme = params.get("theme");
 if (theme === 'dark') {
   document.body.classList.add("dark")
 }
 
-const toggle = document.querySelector(".toogle");
+window.onload = () => {
+  const service = localStorage.getItem("service");
+  if (service === "1") {
+    toggle.classList.add("active")
+  } else {
+     toggle.classList.remove("active")
+  }
+}
+
+
 toggle.addEventListener("click", () => {
   toggle.classList.toggle("active");
+  if (toggle.classList.contains('active')) {
+    localStorage.setItem("service", '1');
+  } else {
+    localStorage.setItem("service", '0');
+  }
 })
