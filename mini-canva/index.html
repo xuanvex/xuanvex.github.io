@@ -110,6 +110,85 @@
             width: 100%;;
         }
 
+        .inputt {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .inputt .file-input {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px dashed var(--border);
+            background-color: var(--body);
+            padding: 16px;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: 0.2 ease;
+            &:hover {
+                border: 1px dashed var(--main-text-color);
+            }
+             .file {
+                width: 100%;
+                position: absolute;
+                top: 20%;
+                opacity: 0;
+            }
+            .input-layout {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .input-layout span {
+                border: 1px solid var(--border);
+                padding: 5px;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                background-color: var(--container-bg);
+                border-radius: 8px;
+                font-size:23px;
+                color: var(--main-text-color);
+                font-weight: 600;
+            }
+            .input-head {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: space-between;
+                gap: 15px;
+            }
+            .input-text strong {
+                font-size: 14px;
+                color: var(--main-text-color);
+                font-weight: 500;
+                display: block;
+            }
+            .input-text p {
+                font-size: 12px;
+                color: var(--secodary-text-color);
+                margin-top: 3px;
+            }
+            .input-btn button {
+                padding: 11px;
+                background-color: var(--container-bg);
+                outline: none;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                font-weight: 500;
+                color: var(--main-text-color);
+            }
+        }
+
+        
     </style>
 </head>
 <body>
@@ -129,9 +208,29 @@
                     <label>E-mail <span style="color: red;">*</span></label>
                     <input type="text" placeholder="Your name...">
                 </div>
+                <div class="inputt">
+                    <label>Images</label>
+                    <div class="file-input">
+                        <input class="file" type="file" accept="images/*" multiple>
+                        <div class="input-layout">
+                            <div class="input-head">
+                                <div class="icon">
+                                    <span>↑</span>
+                                </div>
+                                <div class="input-text">
+                                    <strong>Upload images</strong>
+                                    <p>PNG, JPEG, WEBP or GIF</p>
+                                </div>
+                            </div>
+                            <div class="input-btn">
+                                <button>Browse</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     <div class="input">
                     <label>Message <span style="color: red;">*</span></label>
-                    <textarea type="text" placeholder="Your name...">
+                    <textarea placeholder="Message"></textarea>
                 </div>
             </div>
         </div>
