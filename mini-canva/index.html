@@ -16,6 +16,7 @@
             --body: #f8f9fa;
             --border: #e5e7eb;
             --container-bg: white;
+             --toogle: #202124;
         }
         .dark {
     --main-text-color: #f1f5f9;
@@ -23,6 +24,7 @@
     --body: #0f1115;
     --border: #272b33;
     --container-bg: #171a21;
+    --toogle: #202124;
 }
         body {
             width: 100%;
@@ -252,7 +254,62 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
+        .toogle {
+            width: 40px;
+            height: 20px;
+            border: 1px solid var(--border);
+            background-color: var(--body);
+            border-radius: 50px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 2px;
+            cursor: pointer;
+        }
+        .toogle span {
+            width: 14px;
+            height: 14px;
+            background-color: var(--secodary-text-color);
+            flex: 0 0 14px;
+            border-radius: inherit;
+            transition: transform 200ms ease-in-out,
+                background-color 200ms ease-in-out;
+            border: 1px solid var(--border);
+        }
+        .toogle:hover span {
+            transform: scale(1.1);
+        }
+        .toogle.active span {
+            transform: translateX(calc(100% + 2px));
+            background-color: var(--container-bg);
+            border: none;
+        }
+        .toogle.active {
+            background-color: var(--toogle);
+            border: none;
+        } 
+        .pri {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .pri label {
+            width:100%;
+        }
+        .pri label strong {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            color: var(--main-text-color);
+        }
+        .pri label p {
+            font-size: 13px;
+            color: var(--secodary-text-color);
+            letter-spacing: -0.1px;
+        }
     </style>
 </head>
 <body class="">
@@ -299,6 +356,15 @@
                     <label>Message <span style="color: red;">*</span></label>
                     <textarea placeholder="Message"></textarea>
                 </div>
+            </div>
+            <div class="pri">
+                <label for="">
+                    <strong>Service running</strong>
+                    <p>Turn On this toggle then your service will running</p>
+                </label>
+                <div class="toogle">
+                <span></span>
+            </div>
             </div>
         </div>
     </main>

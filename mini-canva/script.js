@@ -62,3 +62,8 @@ const theme = params.get("theme");
 if (theme === 'dark') {
   document.body.classList.add("dark")
 }
+
+const toggle = document.querySelector(".toogle");
+toggle.addEventListener("click", () => {
+  toggle.classList.toggle("active");
+})
