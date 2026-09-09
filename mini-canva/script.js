@@ -11,7 +11,7 @@ file.addEventListener("change", () => {
   }
   show();
       files.forEach((e) => {
-        addUpload(e.name, 10);
+        addUpload(e.name, 10, URL.createObjectURL(e));
     });
 })
 
@@ -22,11 +22,13 @@ function show() {
 function hide() {
   uploadDiv.style.display = 'none';
 }
-function addUpload(fileName, uploadPercentage) {
+function addUpload(fileName, uploadPercentage, path) {
   const uploadItem = document.createElement('div');
   uploadItem.className = 'upload-progress';
   uploadItem.innerHTML = `
-        <div class="progress-info">
+  <img src='${path}' />
+  <div class="pr">
+          <div class="progress-info">
             <span>${fileName}</span>
             <span class="progress-percentage">${uploadPercentage}%</span>
         </div>
@@ -34,6 +36,7 @@ function addUpload(fileName, uploadPercentage) {
         <div class="progress-bar">
             <div class="progress"></div>
         </div>
+  </div>
     `;
     uploadDiv.appendChild(uploadItem);
 

@@ -191,10 +191,24 @@
         .upload-progress{
             width: 100%;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 6px;
             margin-top: 10px;
 
+        }
+        .upload-progress img {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background-size: contain;
+        }
+        .pr {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 6px;
         }
         .progress-info {
             width: 100%;
@@ -265,7 +279,7 @@
                         </div>
                     </div>
                     <div class="upload">
-                    
+
                     </div>
                 </div>
                     <div class="input">
