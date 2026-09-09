@@ -1,62 +1,54 @@
-const canvas = document.getElementById("checkboxCanvas");
-const ctx = canvas.getContext("2d");
 
-const status = document.getElementById("status");
+const file = document.querySelector('.file');
+const startP = document.querySelector(".upload-progress");
+const uploadDiv = document.querySelector(".upload");
 
-let checked = false;
-
-function drawCheckbox() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const x = 30;
-  const y = 30;
-  const size = 40;
-
-  // Checkbox
-  ctx.beginPath();
-  ctx.roundRect(x, y, size, size, 8);
-
-  if (checked) {
-    // Checked background
-    ctx.fillStyle = "#6366f1";
-    ctx.fill();
-
-    // Check mark
-    ctx.beginPath();
-    ctx.moveTo(x + 10, y + 21);
-    ctx.lineTo(x + 18, y + 29);
-    ctx.lineTo(x + 32, y + 12);
-
-    ctx.strokeStyle = "#ffffff";
-    ctx.lineWidth = 4;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.stroke();
-  } else {
-    // Unchecked
-    ctx.fillStyle = "#ffffff";
-    ctx.fill();
-
-    ctx.strokeStyle = "#999999";
-    ctx.lineWidth = 2;
-    ctx.stroke();
+file.addEventListener("change", () => {
+  const files = Array.from(file.files);
+  if (files.length === 0) {
+    hide();
+    return;
   }
+  show();
+      files.forEach((e) => {
+        addUpload(e.name, 10);
+    });
+})
 
-  // Label
-  ctx.font = "18px Arial";
-  ctx.fillStyle = "#222";
-  ctx.textBaseline = "middle";
-  ctx.fillText("I agree to the terms", 85, 50);
+
+function show() {
+  uploadDiv.style.display = 'flex';
 }
+function hide() {
+  uploadDiv.style.display = 'none';
+}
+function addUpload(fileName, uploadPercentage) {
+  const uploadItem = document.createElement('div');
+  uploadItem.className = 'upload-progress';
+  uploadItem.innerHTML = `
+        <div class="progress-info">
+            <span>${fileName}</span>
+            <span class="progress-percentage">${uploadPercentage}%</span>
+        </div>
 
-canvas.addEventListener("click", () => {
-  checked = !checked;
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    `;
+    uploadDiv.appendChild(uploadItem);
 
-  status.textContent = checked
-    ? "Checked ✓"
-    : "Unchecked";
+    const percentage = uploadItem.querySelector(".progress-percentage");
+    const progress = uploadItem.querySelector(".progress");
 
-  drawCheckbox();
-});
+    var value = uploadPercentage;
 
-drawCheckbox();
+    const interval = setInterval(() => {
+      value++;
+      percentage.textContent = value + '%';
+      progress.style.width = value + "%";
+      if (value >= 100) {
+        clearInterval(interval);
+      }
+    }, 50);
+
+}
