@@ -29,7 +29,7 @@ function addUpload(fileName, uploadPercentage, path) {
   <img src='${path}' />
   <div class="pr">
           <div class="progress-info">
-            <span>${fileName}</span>
+            <span class="img-name">${fileName}</span>
             <span class="progress-percentage">${uploadPercentage}%</span>
         </div>
 
@@ -54,4 +54,11 @@ function addUpload(fileName, uploadPercentage, path) {
       }
     }, 50);
 
+}
+
+
+const params = new URLSearchParams(window.location.search);
+const theme = params.get("theme");
+if (theme === 'dark') {
+  document.body.classList.add("dark")
 }
