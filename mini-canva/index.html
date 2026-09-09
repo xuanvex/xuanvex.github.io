@@ -187,7 +187,35 @@
                 color: var(--main-text-color);
             }
         }
-
+        .progress {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .p-bar {
+            width: 100%;
+            display: flex;
+            border: 1px solid var(--border);
+            background-color: var(--body);
+            padding: 10px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+        }
+        .p-bar span {
+            font-weight: 600;
+            color: var(--main-text-color);
+            font-size: 14px;
+            font-family: monospace;
+        }
+        .p-bar .percentage {
+            width: 100%;
+            height: 3px;
+            background-color: green;
+            border-radius: 8px;
+        }
         
     </style>
 </head>
@@ -225,6 +253,12 @@
                             <div class="input-btn">
                                 <button>Browse</button>
                             </div>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="p-bar">
+                            <span>0%</span>
+                            <div class="percentage"></div>
                         </div>
                     </div>
                 </div>
