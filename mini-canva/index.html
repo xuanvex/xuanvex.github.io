@@ -339,6 +339,43 @@
                 transform: scale(0.93);
             }
         }
+
+        [data-tooltip] {
+            position: relative;
+        }
+        [data-tooltip]::after {
+            content: attr(data-tooltip);
+            font-size: 14px;
+            display: flex;
+            position: absolute;
+            
+            background-color: var(--body);
+            color: var(--main-text-color);
+            border-radius: 8px;
+            padding: 6px 10px;
+            border: 1px solid var(--border);
+            white-space: nowrap;
+            left: 50%;
+            bottom: calc(100% - 8px);
+            transform: translateX(-50%) translateY(10px) scale(0.95);
+            font-weight: 500;
+            letter-spacing: -0.2px;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9999;
+            pointer-events: none;
+            transition:
+    opacity 180ms cubic-bezier(.4,0,.2,1),
+    transform 180ms cubic-bezier(.4,0,.2,1);
+        }
+        [data-tooltip]:hover::after {
+            opacity: 1;
+            visibility: visible;
+            bottom: 33px;
+            transform: translateX(-50%) translateY(0) scale(1);
+        }
+
+
         
     </style>
 </head>
@@ -361,7 +398,7 @@
                 </div>
                 <div class="inputt">
                     <label>Images</label>
-                    <div class="file-input">
+                    <div class="file-input" data-tooltip="Add Images">
                         <input class="file" type="file" accept="images/*" multiple>
                         <div class="input-layout">
                             <div class="input-head">
@@ -392,12 +429,12 @@
                     <strong>Service running</strong>
                     <p>Turn On this toggle then your service will running</p>
                 </label>
-                <div class="toogle">
+                <div data-tooltip="Turn on Service" class="toogle">
                 <span></span>
             </div>
             </div>
                 <div class="btn">
-                          <button>Submit</button>
+                          <button data-tooltip="Send Mail">Submit</button>
                 </div>
         </div>
     </main>
